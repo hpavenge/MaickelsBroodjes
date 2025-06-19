@@ -10,7 +10,7 @@ export default function HeroCarousel() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length)
-    }, 5000) // 5 sec
+    }, 5000)
     return () => clearInterval(interval)
   }, [])
 
@@ -27,8 +27,16 @@ export default function HeroCarousel() {
           }`}
         />
       ))}
+
+      {/* Floating Logo - Top Left */}
+      {/* <img
+        src="/logo.jpg"
+        alt="Maickels Broodjes"
+        className="absolute top-10 left-10 w-24 md:w-28 opacity-80"
+      /> */}
+
+      {/* Center Content */}
       <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center px-4">
-        <img src="/logo.jpg" alt="Maickels Broodjes" className="w-24 md:w-28 mb-4 opacity-80" />
         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
           Verse broodjes op vaste plekken in de stad
         </h1>
@@ -51,3 +59,4 @@ export default function HeroCarousel() {
     </div>
   )
 }
+

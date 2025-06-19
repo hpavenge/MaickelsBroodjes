@@ -1,4 +1,6 @@
 import HeroCarousel from './components/HeroCarousel';
+import WekelijksSchema from './components/WekelijksSchema'
+import Sauzen from './components/Sauzen'
 
 export default function Home() {
   return (
@@ -7,24 +9,10 @@ export default function Home() {
       <HeroCarousel/>
 
       {/* Locaties */}
-      <section id="locaties" className="max-w-4xl mx-auto px-4 py-16">
-        <h2 className="text-2xl font-bold mb-6">📍 Standplaatsen</h2>
-        <ul className="space-y-3 text-lg">
-          <li>📍 <strong>Dinsdag</strong> – Luchthavenweg 54, Eindhoven</li>
-          <li>📍 <strong>Woensdag</strong> – Scheiweg 27, Gemert</li>
-          <li>📍 <strong>Donderdag</strong> – Stikker 18, Asten</li>
-          <li>📍 <strong>Vrijdag</strong> – Varenshut 19, Helmond</li>
-        </ul>
-      </section>
+      <WekelijksSchema />
 
       {/* Sauzen */}
-      <section className="max-w-4xl mx-auto px-4 py-16 bg-white text-black rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold mb-4">🌶️ Sauzen van het huis</h2>
-        <p className="text-lg">
-          Unieke sauzen waar je je vingers bij aflikt – pittig, romig of verrassend zoet.
-          Altijd vers en huisgemaakt!
-        </p>
-      </section>
+      <Sauzen />
 
       {/* Contact */}
       <section id="contact" className="max-w-4xl mx-auto px-4 py-16">
