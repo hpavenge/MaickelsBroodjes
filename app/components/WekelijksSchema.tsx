@@ -131,7 +131,7 @@ export default function WekelijksSchema() {
   const data = locaties[weekType][selectedDay] || []
 
   return (
-    <section className="max-w-4xl mx-auto px-4 py-16">
+    <section id="locaties" className="max-w-4xl mx-auto px-4 py-16">
       <h2 className="text-3xl font-bold mb-8">📅 Schema</h2>
 
       <div className="hidden md:flex justify-between flex-wrap gap-2 mb-6 w-full">
