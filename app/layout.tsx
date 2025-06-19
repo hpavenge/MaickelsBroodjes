@@ -1,7 +1,10 @@
-// app/layout.tsx
 import './globals.css'
-import { Inter } from 'next/font/google'
-const inter = Inter({ subsets: ['latin'] })
+import { Quicksand } from 'next/font/google'
+
+const quicksand = Quicksand({
+  subsets: ['latin'],
+  weight: ['600'], // SemiBold
+})
 
 export const metadata = {
   title: 'Maickels Broodjes',
@@ -10,8 +13,8 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="nl">
+      <body className={quicksand.className}>{children}</body>
     </html>
   )
 }
