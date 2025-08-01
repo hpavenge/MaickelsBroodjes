@@ -40,21 +40,36 @@ export default function HeroCarousel() {
         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
           Verse broodjes op vaste plekken in de stad
         </h1>
-        <div className="flex gap-4 flex-wrap justify-center">
-          <a
-            href="#locaties"
-            className="px-5 py-2 bg-white text-black font-medium rounded hover:bg-gray-200 transition"
-          >
-            Bekijk locaties
-          </a>
-          <a
-            href="https://www.instagram.com/maickelsbroodjes"
-            target="_blank"
-            className="px-5 py-2 border border-white text-white rounded font-medium hover:bg-white hover:text-black transition"
-          >
-            Volg op Instagram
-          </a>
-        </div>
+<div className="flex gap-4 flex-wrap justify-center">
+  <a
+    href="#locaties"
+    className="px-5 py-2 bg-white text-black font-medium rounded hover:bg-gray-200 transition"
+  >
+    Bekijk locaties
+  </a>
+  <a
+    href="https://www.instagram.com/maickelsbroodjes"
+    target="_blank"
+    className="px-5 py-2 bg-white text-black font-medium rounded hover:bg-gray-200 transition"
+  >
+    Instagram
+  </a>
+  <a
+    href="https://www.facebook.com/maickelsbroodjes"
+    target="_blank"
+    className="px-5 py-2 bg-white text-black font-medium rounded hover:bg-gray-200 transition"
+  >
+    Facebook
+  </a>
+  <a
+    href="https://www.tiktok.com/@maickelsbroodjes"
+    target="_blank"
+    className="px-5 py-2 bg-white text-black font-medium rounded hover:bg-gray-200 transition"
+  >
+    TikTok
+  </a>
+</div>
+
       </div>
     </div>
   )

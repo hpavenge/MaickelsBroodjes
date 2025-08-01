@@ -112,19 +112,26 @@ export default function WekelijksSchema() {
   const [selectedDay, setSelectedDay] = useState('dinsdag')
   const [isEvenWeek, setIsEvenWeek] = useState(false)
 
-  useEffect(() => {
-    const now = new Date()
-    const dayNumber = now.getDay() // zondag = 0
-    const oneJan = new Date(now.getFullYear(), 0, 1)
-    const numberOfDays = Math.floor((now.getTime() - oneJan.getTime()) / (24 * 60 * 60 * 1000))
-    const weekNumber = Math.ceil((now.getDay() + 1 + numberOfDays) / 7)
-  
-    setIsEvenWeek(weekNumber % 2 === 0)
-  
-    const dayNames = ['zondag', 'maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag', 'zaterdag']
-    const vandaag = dayNames[dayNumber]
-    if (dagen.includes(vandaag)) setSelectedDay(vandaag)
-  }, [])
+  function getISOWeekNumber(date: Date) {
+  const tmp = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()))
+  const dayNum = tmp.getUTCDay() || 7
+  tmp.setUTCDate(tmp.getUTCDate() + 4 - dayNum)
+  const yearStart = new Date(Date.UTC(tmp.getUTCFullYear(), 0, 1))
+  return Math.ceil((((tmp.getTime() - yearStart.getTime()) / 86400000) + 1) / 7)
+}
+
+
+useEffect(() => {
+  const now = new Date()
+  const weekNumber = getISOWeekNumber(now)
+  setIsEvenWeek(weekNumber % 2 === 0)
+
+  const dayNumber = now.getDay() // zondag = 0
+  const dayNames = ['zondag', 'maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag', 'zaterdag']
+  const vandaag = dayNames[dayNumber]
+  if (dagen.includes(vandaag)) setSelectedDay(vandaag)
+}, [])
+
   
 
   const weekType = isEvenWeek ? 'even' : 'oneven'
@@ -132,7 +139,11 @@ export default function WekelijksSchema() {
 
   return (
     <section id="locaties" className="max-w-4xl mx-auto px-4 py-16">
-      <h2 className="text-3xl font-bold mb-8">📅 Schema</h2>
+      <h2 className="text-3xl font-bold mb-2">📅 Schema</h2>
+<p className="text-white text-sm mb-8">
+  Week {isEvenWeek ? 'even' : 'oneven'}
+</p>
+
 
       <div className="hidden md:flex justify-between flex-wrap gap-2 mb-6 w-full">
         {dagen.map((dag) => (
