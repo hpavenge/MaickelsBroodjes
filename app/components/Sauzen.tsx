@@ -2,19 +2,19 @@ export default function Sauzen() {
     const sauzen = [
       {
         naam: 'Spicy Cocktail',
-        afbeelding: '/spicy-cocktail.jpeg',
+        afbeelding: '/spicy-cocktail-b.jpg',
         kort: 'Lekkere pittige saus met chipotle kick.',
         alt: 'Spicy Cocktail Saus',
       },
       {
         naam: 'Smokey Cocktail',
-        afbeelding: '/smokey-cocktail.jpeg',
+        afbeelding: '/smokey-cocktail-b.jpg',
         kort: 'Romige saus met een zachte rooksmaak.',
         alt: 'Smokey Cocktail Saus',
       },
       {
         naam: 'Smokey Barbecue',
-        afbeelding: '/smokey-barbecue.jpeg',
+        afbeelding: '/smokey-barbecue-b.jpg',
         kort: 'Zoete, gerookte barbecuesaus met karakter.',
         alt: 'Smokey Barbecue Saus',
       },
@@ -28,7 +28,7 @@ export default function Sauzen() {
           {sauzen.map((saus, index) => (
             <div
               key={index}
-              className="min-w-[250px] sm:min-w-0 flex-shrink-0 bg-white text-black rounded shadow hover:shadow-lg hover:scale-105 transition-transform duration-300 overflow-hidden"
+              className="min-w-[250px] sm:min-w-0 flex-shrink-0 bg-black text-white rounded shadow hover:shadow-lg hover:scale-105 transition-transform duration-300 overflow-hidden"
             >
               <img
                 src={saus.afbeelding}
@@ -37,7 +37,7 @@ export default function Sauzen() {
               />
               <div className="p-4">
                 <h3 className="text-xl font-semibold mb-2">{saus.naam}</h3>
-                <p className="text-sm text-gray-700">{saus.kort}</p>
+                <p className="text-sm">{saus.kort}</p>
               </div>
             </div>
           ))}
