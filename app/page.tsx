@@ -3,7 +3,6 @@ import WekelijksSchema from './components/WekelijksSchema'
 import Sauzen from './components/Sauzen'
 import ContactForm from './components/ContactForm'
 
-
 export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white font-sans">
