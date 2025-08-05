@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
   try {
     const { data, error } = await resend.emails.send({
       from: 'Maickels Broodjes <noreply@maickelsbroodjes.nl>',
-      to: ['nickraaf@outlook.com'], // <-- the real inbox
+      to: ['info@mbfoodpassion.nl'], // <-- the real inbox
       subject: 'Nieuw bericht via contactformulier',
       react: EmailTemplate({ name, email, message }),
     })
