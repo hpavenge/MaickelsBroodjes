@@ -10,7 +10,10 @@ const quicksand = Quicksand({
   title: 'Maickels Broodjes',
   description:
     'Even voorstellen: Mijn naam is Maickel Bouw en woonachtig in Beek en Donk. Horeca is mijn passie, daarin ben ik al zowat mijn hele leven werkzaam.',
-  openGraph: {
+      icons: {
+    icon: '/favicon.png', // or '/favicon.png', '/favicon.svg'
+  },
+    openGraph: {
     title: 'Maickels Broodjes',
     description:
       'Even voorstellen: Mijn naam is Maickel Bouw en woonachtig in Beek en Donk. Horeca is mijn passie, daarin ben ik al zowat mijn hele leven werkzaam.',
