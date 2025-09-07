@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
+import { FaInstagram, FaFacebook, FaTiktok } from 'react-icons/fa'
 import Image from 'next/image'
 
 const images = ['/hero1.jpg', '/hero2.jpg', '/hero3.jpg']
@@ -16,6 +17,7 @@ export default function HeroCarousel() {
 
   return (
     <div className="relative w-full h-[80vh] overflow-hidden">
+
       {images.map((src, index) => (
         <Image
           key={index}
@@ -28,48 +30,69 @@ export default function HeroCarousel() {
         />
       ))}
 
-      {/* Floating Logo - Top Left */}
-      {/* <img
-        src="/logo.jpg"
-        alt="Maickels Broodjes"
-        className="absolute top-10 left-10 w-24 md:w-28 opacity-80"
-      /> */}
-
       {/* Center Content */}
       <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center px-4">
+                {/* Logo above title */}
+        <div className="mb-2">
+          <Image
+            src="/logo_transparent.png"
+            alt="Maickels Broodjes logo"
+            width={220}
+            height={220}
+            priority
+            className="h-auto w-[190px] md:w-[120px] object-contain"
+          />
+        </div>
+        
         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
           Verse broodjes op vaste plekken in de stad
         </h1>
-<div className="flex gap-4 flex-wrap justify-center">
-  <a
-    href="#locaties"
-    className="px-5 py-2 bg-white text-black font-medium rounded hover:bg-gray-200 transition"
-  >
-    Bekijk locaties
-  </a>
-  <a
-    href="https://www.instagram.com/maickelsbroodjes"
-    target="_blank"
-    className="px-5 py-2 bg-white text-black font-medium rounded hover:bg-gray-200 transition"
-  >
-    Instagram
-  </a>
-  <a
-    href="https://www.facebook.com/maickelsbroodjes"
-    target="_blank"
-    className="px-5 py-2 bg-white text-black font-medium rounded hover:bg-gray-200 transition"
-  >
-    Facebook
-  </a>
-  <a
-    href="https://www.tiktok.com/@maickelsbroodjes"
-    target="_blank"
-    className="px-5 py-2 bg-white text-black font-medium rounded hover:bg-gray-200 transition"
-  >
-    TikTok
-  </a>
-</div>
+        {/* CTA row */}  
+        <div className="flex gap-4 flex-wrap justify-center">
+          <a
+            href="#locaties"
+            className="px-5 py-2 bg-white text-black font-medium rounded hover:bg-gray-200 transition"
+          >
+            Bekijk locaties
+          </a>
 
+{/* Social icon buttons */}
+          <div className="flex items-center gap-3">
+            <a
+              href="https://www.instagram.com/maickelsbroodjes"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="p-2 rounded-full bg-white/90 hover:bg-white transition shadow-sm"
+              title="Instagram"
+            >
+              <FaInstagram className="h-6 w-6 text-black" />
+            </a>
+
+            <a
+              href="https://www.facebook.com/maickelsbroodjes"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="p-2 rounded-full bg-white/90 hover:bg-white transition shadow-sm"
+              title="Facebook"
+            >
+              <FaFacebook className="h-6 w-6 text-black" />
+            </a>
+
+            <a
+              href="https://www.tiktok.com/@maickelsbroodjes"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TikTok"
+              className="p-2 rounded-full bg-white/90 hover:bg-white transition shadow-sm"
+              title="TikTok"
+            >
+              <FaTiktok className="h-6 w-6 text-black" />
+            </a>
+          </div>
+
+        </div>
       </div>
     </div>
   )
