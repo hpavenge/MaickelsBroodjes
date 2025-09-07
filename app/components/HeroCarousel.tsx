@@ -40,7 +40,7 @@ export default function HeroCarousel() {
             width={220}
             height={220}
             priority
-            className="h-auto w-[190px] md:w-[120px] object-contain"
+            className="h-auto w-[150px] md:w-[220px] lg:w-[260px] object-contain"
           />
         </div>
         
