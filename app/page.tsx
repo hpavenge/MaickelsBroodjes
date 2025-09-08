@@ -16,10 +16,10 @@ export default function Home() {
       <Sauzen />
 
       {/* Contact */}
-      {/* <section id="contact" className="max-w-4xl mx-auto px-4 py-16">
+      <section id="contact" className="max-w-4xl mx-auto px-4 py-16">
         <h2 className="text-2xl font-bold mb-6">📬 Contact / Boekingen</h2>
         <ContactForm />
-      </section> */}
+      </section>
 
       {/* Footer */}
       <footer className="text-center py-10 text-sm text-gray-400">
