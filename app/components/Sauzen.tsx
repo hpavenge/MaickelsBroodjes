@@ -28,7 +28,7 @@ export default function Sauzen() {
           {sauzen.map((saus, index) => (
             <div
               key={index}
-              className="min-w-[250px] sm:min-w-0 flex-shrink-0 bg-black text-white rounded shadow hover:shadow-lg hover:scale-105 transition-transform duration-300 overflow-hidden"
+              className="min-w-[250px] sm:min-w-0 flex-shrink-0 bg-black text-white rounded shadow hover:shadow-lg hover:scale-105 transition-transform duration-300 overflow-hidden flex flex-col"
             >
               <img
                 src={saus.afbeelding}
