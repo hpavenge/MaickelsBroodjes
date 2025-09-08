@@ -33,7 +33,7 @@ export default function Sauzen() {
               <img
                 src={saus.afbeelding}
                 alt={saus.alt}
-                className="w-full h-60 object-cover"
+                className="w-full h-60 object-contain"
               />
               <div className="p-4">
                 <h3 className="text-xl font-semibold mb-2">{saus.naam}</h3>
