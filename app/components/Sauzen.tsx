@@ -34,7 +34,7 @@ export default function Sauzen() {
               <img
                 src={saus.afbeelding}
                 alt={saus.alt}
-                className="w-full h-auto object-cover"
+                className="w-full h-[250px] object-contain"
               />
             </div>
             <div className="p-4">
