@@ -26,20 +26,22 @@ export default function Sauzen() {
   
         <div className="flex gap-6 overflow-x-auto scrollbar-hide sm:grid sm:grid-cols-2 md:grid-cols-3 sm:gap-6">
           {sauzen.map((saus, index) => (
-            <div
-              key={index}
-              className="min-w-[250px] sm:min-w-0 flex-shrink-0 bg-black text-white rounded shadow hover:shadow-lg hover:scale-105 transition-transform duration-300 overflow-hidden flex flex-col"
-            >
+          <div
+            key={index}
+            className="min-w-[250px] sm:min-w-0 flex-shrink-0 bg-black text-white rounded shadow hover:shadow-lg hover:scale-105 transition-transform duration-300 overflow-hidden flex flex-col"
+          >
+            <div className="w-full">
               <img
                 src={saus.afbeelding}
                 alt={saus.alt}
-                className="w-full h-60 object-contain"
+                className="w-full h-auto object-cover"
               />
-              <div className="p-4">
-                <h3 className="text-xl font-semibold mb-2">{saus.naam}</h3>
-                <p className="text-sm">{saus.kort}</p>
-              </div>
             </div>
+            <div className="p-4">
+              <h3 className="text-xl font-semibold mb-2">{saus.naam}</h3>
+              <p className="text-sm">{saus.kort}</p>
+            </div>
+          </div>
           ))}
         </div>
       </section>
