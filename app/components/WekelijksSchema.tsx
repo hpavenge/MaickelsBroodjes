@@ -43,10 +43,10 @@ const locaties = {
     ],
     vrijdag: [
       {
-        naam: 'RVL Auto’s',
-        adres: 'Pater de Leeuwstraat 7, 5741 EE Beek en Donk',
+        naam: 'Hap B.V.',
+        adres: 'Scherpenbeemd 5, 5741 TX Beek en Donk',
         tijd: '12.00 – 13.30 uur',
-        maps: 'https://maps.google.com/?q=Bosscheweg+34,+Beek+en+Donk',
+        maps: 'https://www.google.com/maps/place/Scherpenbeemd+5,+5741+TX+Beek+en+Donk/',
       },
     ],
     zaterdag: [
