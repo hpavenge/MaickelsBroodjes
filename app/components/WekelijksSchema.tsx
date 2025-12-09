@@ -113,26 +113,26 @@ export default function WekelijksSchema() {
   const [isEvenWeek, setIsEvenWeek] = useState(false)
 
   function getISOWeekNumber(date: Date) {
-  const tmp = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()))
-  const dayNum = tmp.getUTCDay() || 7
-  tmp.setUTCDate(tmp.getUTCDate() + 4 - dayNum)
-  const yearStart = new Date(Date.UTC(tmp.getUTCFullYear(), 0, 1))
-  return Math.ceil((((tmp.getTime() - yearStart.getTime()) / 86400000) + 1) / 7)
-}
+    const tmp = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()))
+    const dayNum = tmp.getUTCDay() || 7
+    tmp.setUTCDate(tmp.getUTCDate() + 4 - dayNum)
+    const yearStart = new Date(Date.UTC(tmp.getUTCFullYear(), 0, 1))
+    return Math.ceil((((tmp.getTime() - yearStart.getTime()) / 86400000) + 1) / 7)
+  }
 
 
-useEffect(() => {
-  const now = new Date()
-  const weekNumber = getISOWeekNumber(now)
-  setIsEvenWeek(weekNumber % 2 === 0)
+  useEffect(() => {
+    const now = new Date()
+    const weekNumber = getISOWeekNumber(now)
+    setIsEvenWeek(weekNumber % 2 === 0)
 
-  const dayNumber = now.getDay() // zondag = 0
-  const dayNames = ['zondag', 'maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag', 'zaterdag']
-  const vandaag = dayNames[dayNumber]
-  if (dagen.includes(vandaag)) setSelectedDay(vandaag)
-}, [])
+    const dayNumber = now.getDay() // zondag = 0
+    const dayNames = ['zondag', 'maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag', 'zaterdag']
+    const vandaag = dayNames[dayNumber]
+    if (dagen.includes(vandaag)) setSelectedDay(vandaag)
+  }, [])
 
-  
+
 
   const weekType = isEvenWeek ? 'even' : 'oneven'
   const data = locaties[weekType][selectedDay] || []
@@ -140,69 +140,68 @@ useEffect(() => {
   return (
     <section id="locaties" className="max-w-4xl mx-auto px-4 py-16">
       <h2 className="text-3xl font-bold mb-2">📅 Schema</h2>
-<p className="text-white text-sm mb-8">
-  Week {isEvenWeek ? 'even' : 'oneven'}
-</p>
+      <br />
+      <p className="text-white text-sm mb-8">Kijk voor de actuele openingstijden en locaties op onze Facebook of Instagram pagina!
+      </p>
 
 
       <div className="hidden md:flex justify-between flex-wrap gap-2 mb-6 w-full">
         {dagen.map((dag) => (
-            <button
+          <button
             key={dag}
             onClick={() => setSelectedDay(dag)}
-            className={`flex-1 px-4 py-2 rounded text-center transition-all ${
-                selectedDay === dag ? 'bg-white text-black font-semibold' : 'border border-white text-white'
-            }`}
-            >
+            className={`flex-1 px-4 py-2 rounded text-center transition-all ${selectedDay === dag ? 'bg-white text-black font-semibold' : 'border border-white text-white'
+              }`}
+          >
             {dag.charAt(0).toUpperCase() + dag.slice(1)}
-            </button>
+          </button>
         ))}
-    </div>    
-    
-    {/* //Mobile navigation for days */}
-    <div className="flex md:hidden justify-between items-center mb-6">
+      </div>
+
+      {/* //Mobile navigation for days */}
+      <div className="flex md:hidden justify-between items-center mb-6">
         <button
-            onClick={() => {
+          onClick={() => {
             const currentIdx = dagen.indexOf(selectedDay)
             const prev = (currentIdx - 1 + dagen.length) % dagen.length
             setSelectedDay(dagen[prev])
-            }}
-            className="px-3 py-2 border border-white rounded"
+          }}
+          className="px-3 py-2 border border-white rounded"
         >
-            ←
+          ←
         </button>
         <span className="text-lg capitalize">{selectedDay}</span>
         <button
-            onClick={() => {
+          onClick={() => {
             const currentIdx = dagen.indexOf(selectedDay)
             const next = (currentIdx + 1) % dagen.length
             setSelectedDay(dagen[next])
-            }}
-            className="px-3 py-2 border border-white rounded"
+          }}
+          className="px-3 py-2 border border-white rounded"
         >
-            →
+          →
         </button>
-    </div>
+      </div>
 
-    <div
-    key={selectedDay}
-    className="space-y-6 transition-all duration-500 ease-in-out animate-fade"
-    >
+      <div
+        key={selectedDay}
+        className="space-y-6 transition-all duration-500 ease-in-out animate-fade"
+      >
         {data.map((locatie, idx) => (
-            <div key={idx} className="border border-white p-4 rounded">
+          <div key={idx} className="border border-white p-4 rounded">
             <h3 className="text-xl font-semibold mb-1">{locatie.naam}</h3>
             <p className="text-sm text-gray-300">{locatie.adres}</p>
             <p className="text-sm">🕒 {locatie.tijd}</p>
             <a
-                href={locatie.maps}
-                target="_blank"
-                className="inline-block mt-2 text-sm underline text-blue-400"
+              href={locatie.maps}
+              target="_blank"
+              className="inline-block mt-2 text-sm underline text-blue-400"
             >
-                Open in Google Maps
+              Open in Google Maps
             </a>
-            </div>
+          </div>
         ))}
-    </div>
+      </div>
 
     </section>
   )
