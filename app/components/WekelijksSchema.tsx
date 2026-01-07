@@ -1,7 +1,13 @@
 'use client'
+import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 const dagen = ['dinsdag', 'woensdag', 'donderdag', 'vrijdag', 'zaterdag']
+
+const schemaImage = {
+  src: '/weekschema.jpg',
+  alt: 'Wekelijks schema zoals geplaatst op socials',
+}
 
 const locaties = {
   even: {
@@ -141,11 +147,23 @@ export default function WekelijksSchema() {
     <section id="locaties" className="max-w-4xl mx-auto px-4 py-16">
       <h2 className="text-3xl font-bold mb-2">📅 Schema</h2>
       <br />
-      <p className="text-white text-sm mb-8">Kijk voor de actuele openingstijden en locaties op onze Facebook of Instagram pagina!
-      </p>
+
+      <div className="mb-10">
+        <figure className="border border-white/30 rounded-lg overflow-hidden bg-black/20">
+          <Image
+            src={schemaImage.src}
+            alt={schemaImage.alt}
+            width={1200}
+            height={1200}
+            className="w-full h-auto object-contain"
+            priority
+          />
+          <figcaption className="p-3 text-sm text-gray-200 bg-black/40">Wekelijks schema</figcaption>
+        </figure>
+      </div>
 
 
-      <div className="hidden md:flex justify-between flex-wrap gap-2 mb-6 w-full">
+      {/* <div className="hidden md:flex justify-between flex-wrap gap-2 mb-6 w-full">
         {dagen.map((dag) => (
           <button
             key={dag}
@@ -156,10 +174,10 @@ export default function WekelijksSchema() {
             {dag.charAt(0).toUpperCase() + dag.slice(1)}
           </button>
         ))}
-      </div>
+      </div> */}
 
       {/* //Mobile navigation for days */}
-      <div className="flex md:hidden justify-between items-center mb-6">
+      {/* <div className="flex md:hidden justify-between items-center mb-6">
         <button
           onClick={() => {
             const currentIdx = dagen.indexOf(selectedDay)
@@ -181,9 +199,9 @@ export default function WekelijksSchema() {
         >
           →
         </button>
-      </div>
+      </div> */}
 
-      <div
+      {/* <div
         key={selectedDay}
         className="space-y-6 transition-all duration-500 ease-in-out animate-fade"
       >
@@ -201,7 +219,7 @@ export default function WekelijksSchema() {
             </a>
           </div>
         ))}
-      </div>
+      </div> */}
 
     </section>
   )
