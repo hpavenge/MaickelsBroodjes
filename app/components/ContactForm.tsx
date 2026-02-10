@@ -14,11 +14,12 @@ export default function ContactForm() {
     const name = formData.get('name')
     const email = formData.get('email')
     const message = formData.get('message')
+    const phone = formData.get('phone')
 
     const res = await fetch('/api/send', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, message }),
+      body: JSON.stringify({ name, email, phone, message }),
     })
 
     if (res.ok) {
@@ -43,6 +44,13 @@ export default function ContactForm() {
         type="email"
         placeholder="E-mail"
         name="email"
+        required
+      />
+      <input
+        className="w-full p-3 text-black rounded"
+        type="tel"
+        placeholder="Telefoonnummer"
+        name="phone"
         required
       />
       <textarea
